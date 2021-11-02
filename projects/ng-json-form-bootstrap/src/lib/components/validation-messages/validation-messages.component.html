@@ -1,0 +1,17 @@
+<ng-container *ngIf="errors as error;">
+
+    <ng-container *ngIf="shouldShow">
+        <ng-container *ngIf="error['minlength']">
+                The {{field.label}} field must contain at least {{error['minlength']['requiredLength']}} characters
+        </ng-container>
+        <ng-container *ngIf="error['maxlength']">
+                Maximum field length {{error['maxlength']['requiredLength']}} characters
+        </ng-container>
+        <ng-container *ngIf="error['required']">
+                Required field
+        </ng-container>
+        <ng-container *ngIf="error['pattern']">
+                The value is not correct
+        </ng-container>
+    </ng-container>
+</ng-container>
