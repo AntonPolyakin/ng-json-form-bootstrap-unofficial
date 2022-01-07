@@ -18,7 +18,9 @@
       [attr.disabled]="field.disabled ? '': null "
       [attr.readonly]="field.readonly ? '': null "
       [pattern]="field.pattern ? field.pattern : (field.type == textTypes.email ? regexEmail : '')"
-      [placeholder]="field.placeholder || field.label || '' " [maxlength]="field.maxLength"
+      [placeholder]="field.placeholder || '' " 
+      [maxlength]="field.maxLength"
+      [attr.accept]="field.type == textTypes.file ? field.accept || null : null"
     />
     
     <lib-validation-messages class="invalid-feedback"

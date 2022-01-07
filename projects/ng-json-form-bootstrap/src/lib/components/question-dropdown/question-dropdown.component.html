@@ -8,14 +8,18 @@
       [formControlName]="field.key" 
       [attr.disabled]="field.disabled ? '': null " 
       [compareWith]="compareWithFn(field.trackKey)" 
-      class="form-control"  
-      [ngClass]="{'is-invalid': errors &&  (touched || dirty), 'is-valid': !errors &&  (touched || dirty)}">
-      <option value="">Escolha</option>
+      class="form-control {{field.class}}"  
+      [ngClass]="{'is-invalid': errors &&  (touched || dirty), 'is-valid': !errors &&  (touched || dirty)}"
+      
+      [multiple]="field.multiple ? true : null" 
+      [size]="field.selectSize ? field.selectSize: null" 
+      >
+      <option value="">No choice</option>
       <ng-container *ngIf="isOptionsObservable">
-        <option *ngFor="let item of (field.options | async) trackBy: trackByFn" [ngValue]="item[field.trackKey] ? item : item[field.trackKey] "> {{item[field.viewValue]}} </option>
+        <option *ngFor="let item of (field.options | async) trackBy: trackByFn" [ngValue]="item[field.trackKey] ? item : item[field.trackKey]" [disabled]="item.disabled"> {{item[field.viewValue]}} </option>
       </ng-container>
       <ng-container *ngIf="!isOptionsObservable">
-        <option *ngFor="let item of field.options; trackBy: trackByFn" [ngValue]="item[field.trackKey] ? item : item[field.trackKey] "> {{item[field.viewValue]}} </option>
+        <option *ngFor="let item of field.options; trackBy: trackByFn" [ngValue]="item[field.trackKey] ? item : item[field.trackKey]" [disabled]="item.disabled"> {{item[field.viewValue]}} </option>
       </ng-container>
     </select>
 
