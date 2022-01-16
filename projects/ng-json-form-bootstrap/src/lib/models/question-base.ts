@@ -20,6 +20,8 @@ export interface QuestionBaseInterface {
         required?: boolean;
         size?: number;
         value?: any;
+        //new
+        class?:string;
 }
 
 export class QuestionBase<T> {
@@ -34,6 +36,8 @@ export class QuestionBase<T> {
     required: boolean;
     size: number;
     value: T;
+    //new
+    class?:string;
 
     constructor(options: QuestionBaseInterface = {}) {
         this.value = options.value || null;
@@ -47,6 +51,7 @@ export class QuestionBase<T> {
         this.controlType = options.controlType || QuestionsEnum.BASE;
         this.disabled = options.disabled || false;
         this.readonly = options.readonly || false;
+        this.class = options.class || '';
     }
 
     private createUUID(): string {
