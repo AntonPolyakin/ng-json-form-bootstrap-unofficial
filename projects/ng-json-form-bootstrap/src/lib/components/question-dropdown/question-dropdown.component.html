@@ -2,7 +2,7 @@
   <div [formGroup]="form" class="form-group">
 
     <label [attr.position]="field.labelPosition">
-      {{field.label}} <span class="text-danger"><strong *ngIf="field.required" class="required-star">*</strong> </span>
+      {{field.label}} <span class="text-danger"><strong *ngIf="field.required" class="required-star">*</strong></span>
     </label>
     <select 
       [formControlName]="field.key" 
