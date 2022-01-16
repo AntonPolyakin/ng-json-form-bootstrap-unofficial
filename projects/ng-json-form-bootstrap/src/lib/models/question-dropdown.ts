@@ -7,6 +7,11 @@ export interface DropdownQuestionInterface extends QuestionBaseInterface {
     options?: Observable<{ key?: number | string, value?: any, [kkey: string]: any }[]> | { key?: number | string, value?: any, [kkey: string]: any }[];
     trackKey?: string;
     viewValue?: string;
+    
+    //new
+    selectSize?: number;
+    multiple?: boolean;
+    class?:string;
 }
 
 export class DropdownQuestion extends QuestionBase<string> {
@@ -16,10 +21,19 @@ export class DropdownQuestion extends QuestionBase<string> {
     trackKey = 'key';
     viewValue = 'value';
 
+    //new
+    selectSize?: number;
+    multiple?: boolean;
+    class?:string;
+
     constructor(options: DropdownQuestionInterface = {}) {
         super(options);
         this.options = options.options || [];
         this.trackKey = options.trackKey || 'key';
         this.viewValue = options.viewValue || 'value';
+        //new
+        this.selectSize = options.selectSize || null;
+        this.multiple = options.multiple || null;
+        this.class = options.class || '';
     }
 }

@@ -26,6 +26,7 @@ export class TextboxQuestion extends QuestionBase<string> {
     minLength: number;
     maxLength: number;
     pattern?: RegExp | string;
+    accept?: string;
 
     constructor(options: TextboxQuestionInterface = {}) {
         super(options);
@@ -33,6 +34,7 @@ export class TextboxQuestion extends QuestionBase<string> {
         this.minLength = options.minLength || null;
         this.maxLength = options.maxLength || null;
         this.pattern = options.pattern || null;
+        this.accept = options.accept || null;
         this.value = options.value || null;
     }
 }
