@@ -22,6 +22,38 @@ export interface QuestionBaseInterface {
         value?: any;
         //new
         class?:string;
+        hidden?:boolean | {QuestionConditions, Object};
+}
+
+//new
+export interface QuestionConditions {
+    rules:Array<QuestionConditionRule>;
+    satisfy:string;
+    log:Function;
+}
+
+export interface QuestionConditionRule {
+    property:string;
+    op:QuestionConditionRuleOperators;
+    value:any;
+    required?:boolean
+}
+
+export enum QuestionConditionRuleOperators {
+    eq,
+    neq,
+    ne,
+    gt,
+    gte,
+    lt,
+    lte,
+    absent,
+    empty,
+    present,
+    startsWith,
+    endsWith,
+    contains,
+    matches
 }
 
 export class QuestionBase<T> {
@@ -38,6 +70,7 @@ export class QuestionBase<T> {
     value: T;
     //new
     class?:string;
+    hidden?:boolean | {QuestionConditions, Object};
 
     constructor(options: QuestionBaseInterface = {}) {
         this.value = options.value || null;
@@ -52,6 +85,7 @@ export class QuestionBase<T> {
         this.disabled = options.disabled || false;
         this.readonly = options.readonly || false;
         this.class = options.class || '';
+        this.hidden = options.hidden || false;
     }
 
     private createUUID(): string {

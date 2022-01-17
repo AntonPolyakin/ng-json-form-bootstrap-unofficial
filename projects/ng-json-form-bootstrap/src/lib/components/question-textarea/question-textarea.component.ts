@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { TextareaQuestionInterface } from '../../models';
+import { JsonConditionsService } from '../../services/json-conditions.service';
 
 @Component({
   selector: 'lib-question-textarea',
@@ -15,6 +16,6 @@ export class QuestionTextareaComponent {
   @Input() dirty: boolean;
   @Input() errors: any;
 
-  constructor() { }
+  constructor(public jsonConditionsService: JsonConditionsService) { }
 
 }

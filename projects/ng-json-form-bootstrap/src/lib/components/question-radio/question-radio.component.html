@@ -1,4 +1,4 @@
-<ng-container *ngIf="form && field">
+<ng-container *ngIf="form && field && !jsonConditionsService.checkConditions(field.hidden, form.value)">
   
   <div [formGroup]="form" class="form-group form-check">
   <label>{{field.label}}</label>

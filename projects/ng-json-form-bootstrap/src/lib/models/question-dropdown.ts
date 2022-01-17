@@ -24,6 +24,7 @@ export class DropdownQuestion extends QuestionBase<string> {
     //new
     selectSize?: number;
     multiple?: boolean;
+    class?:string;
 
     constructor(options: DropdownQuestionInterface = {}) {
         super(options);
@@ -33,5 +34,6 @@ export class DropdownQuestion extends QuestionBase<string> {
         //new
         this.selectSize = options.selectSize || null;
         this.multiple = options.multiple || null;
+        this.class = options.class || '';
     }
 }

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Input } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import {CheckboxQuestionInterface } from '../../models';
+import { JsonConditionsService } from '../../services/json-conditions.service';
 
 @Component({
   selector: 'lib-question-checkbox',
@@ -16,7 +17,7 @@ export class QuestionCheckboxComponent {
   @Input() dirty: boolean;
   @Input() errors: any;
 
-  constructor() { }
+  constructor(public jsonConditionsService: JsonConditionsService) { }
 
 
 }

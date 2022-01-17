@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import {
   QuestionTextboxTypes, TextboxQuestionInterface
 } from '../../models';
+import { JsonConditionsService } from '../../services/json-conditions.service';
 
 @Component({
   selector: 'lib-question-textbox',
@@ -21,6 +22,6 @@ export class QuestionTextboxComponent {
   public textTypes = QuestionTextboxTypes;
   public regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  constructor() { }
+  constructor(public jsonConditionsService: JsonConditionsService) { }
 
 }

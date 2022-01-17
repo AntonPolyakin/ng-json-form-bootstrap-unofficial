@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { isObservable } from 'rxjs';
 import {DropdownQuestionInterface } from '../../models';
+import { JsonConditionsService } from '../../services/json-conditions.service';
 
 @Component({
     selector: 'lib-question-dropdown',
@@ -19,7 +20,7 @@ export class QuestionDropdownComponent implements OnChanges {
 
     public isOptionsObservable: boolean;
 
-    constructor() {}
+    constructor(public jsonConditionsService: JsonConditionsService) {}
 
     ngOnChanges(changes: SimpleChanges): void {
         const opts = changes?.field?.currentValue?.options;
