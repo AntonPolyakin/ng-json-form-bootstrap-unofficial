@@ -1,8 +1,9 @@
-<ng-container *ngIf="form && field">
+<ng-container *ngIf="form && field && !jsonConditionsService.checkConditions(field.hidden, form.value)">
   <div [formGroup]="form" class="form-group">
 
     <label [attr.position]="field.labelPosition">
-      {{field.label}} <span class="text-danger"><strong *ngIf="field.required"  class="required-star">*</strong></span> </label>
+      {{field.label}}<span class="text-danger"><strong *ngIf="field.required" class="required-star"> *</strong></span>
+    </label>
     <input
       class="form-control-range"
       [ngClass]="{'is-invalid': errors &&  (touched || dirty), 'is-valid': !errors &&  (touched || dirty)}"

@@ -11,6 +11,7 @@ import { TextareaQuestionInterface } from './models/question-textarea';
 import { QuestionTextboxTypes, TextboxQuestionInterface } from './models/question-textbox';
 import { QuestionsEnum } from './models/question.enum';
 import { DynamicFormService } from './services/dynamic-form.service';
+import { JsonConditionsService } from './services/json-conditions.service';
 
 @Component({
 // tslint:disable-next-line:component-selector
@@ -37,7 +38,13 @@ public localQuestion: Array< TextboxQuestionInterface
 private destroy$: Subject<boolean> = new Subject();
 
 
-constructor(private fb: FormBuilder, private dynformService: DynamicFormService, private cd: ChangeDetectorRef) {
+constructor(
+  private fb: FormBuilder, 
+  private dynformService: DynamicFormService, 
+  private cd: ChangeDetectorRef,
+  //new
+  public jsonConditionsService: JsonConditionsService
+  ) {
   this.form = this.fb.group({});
 }
 
@@ -94,8 +101,25 @@ watchFieldsChanges(): any {
             return data;
           }
         }))
-      .subscribe( (data) => this.dispatchChanges({[controlKey]: data}));
+      .subscribe( (data) => {
+        this.checkFormState();
+        this.dispatchChanges({[controlKey]: data});
+      });
   });
+
+  this.checkFormState();
+
+}
+
+checkFormState(){
+  //new
+  Object.keys(this.questions).forEach(questionKey=>{
+    if(this.jsonConditionsService.checkConditions(this.questions[questionKey]?.hidden, this.form.value)){
+      this.form.get(questionKey).disable({ emitEvent: false })
+    }else{
+      this.form.get(questionKey).enable({ emitEvent: false })
+    }
+  })
 }
 
 ngOnDestroy(): void {

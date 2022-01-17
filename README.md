@@ -4,7 +4,7 @@
 
 ## Instal
 
-Install the package
+Install the package (original)
 
 npm:
 ```bash
@@ -66,7 +66,7 @@ In your template.html add the component and bind the questions and the output to
 
 And you've got:
 
-<img src="/assets/example-field.png" width="300px">
+<img src="/assets/img/example-field.png" width="300px">
 
 #### Example 2: Complex form
 In your component, declare the questions Object:
@@ -219,7 +219,7 @@ In your template.html add the component and bind the questions and the output to
 
 And you've got:
 
-<img src="/assets/example-complex.png">
+<img src="/assets/img/example-complex.png">
 
 ###### IMPORTANT: The Questions Object is Immutable, the component it'self doesn't change the object, instead it emmits a new value from the output binding everytime the form changes
 
@@ -287,7 +287,9 @@ All inputs extends [Base Configuration](#base-input-default-configuration)
 | `readonly`    | _boolean_                                | Define if the field is text only or not;  Default: `false`;                                                                                          |
 | `required`    | _boolean_                                | Define if the field is mandatory or not; Default:  `false`;                                                                                          |
 | `size`        |_number_                                  | Value of bootstrap grid, from 1(8.5%) to 12 (100%) Default: `null`                                                                                     |
-| `value`       | _string_ \| _number_                     | Value of the field Default: `null`                                                                                                                     |
+| `value`       | _string_ \| _number_                     | Value of the field Default:`null`                                                                                                                     |
+| `class`       | _string_                                 | Custom CSS class (as a string); Default: `''` |
+| `hidden`       | _boolean_ \| _Settings_ (see: [json-conditions](https://github.com/raisely/json-conditions)   | Define if the field is hidden or not; Default: `false` |
 
 ### Enums
 ##### ControlType
@@ -320,6 +322,7 @@ All inputs extends [Base Configuration](#base-input-default-configuration)
 - Support for the [class] attribute via the "class" property
 - Support for [size] attribute of dropdown menu via "selectSize" property
 - Support for multiple selections in dropdown menus via the "multiple" property
+- Added the "hidden" field
 
 # NgDynamicForm
 

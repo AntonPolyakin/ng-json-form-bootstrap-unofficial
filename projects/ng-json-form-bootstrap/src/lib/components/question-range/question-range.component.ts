@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { RangeQuestionInterface } from '../../models';
+import { JsonConditionsService } from '../../services/json-conditions.service';
 
 @Component({
   selector: 'lib-question-range',
@@ -15,6 +16,6 @@ export class QuestionRangeComponent {
   @Input() dirty: boolean;
   @Input() errors: any;
 
-  constructor() { }
+  constructor(public jsonConditionsService: JsonConditionsService) { }
 
 }

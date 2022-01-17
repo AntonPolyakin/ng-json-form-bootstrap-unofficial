@@ -1,8 +1,8 @@
-<ng-container *ngIf="form && field">
+<ng-container *ngIf="form && field && !jsonConditionsService.checkConditions(field.hidden, form.value)">
   <div [formGroup]="form" class="form-group" >
 
     <label [attr.for]="field.key" >
-      {{field.label}} <span class="text-danger"><strong *ngIf="field.required" class="required-star">*</strong> </span>
+      {{field.label}}<span class="text-danger"><strong *ngIf="field.required" class="required-star"> *</strong></span>
     </label>
     <input
       autocomplete="off"

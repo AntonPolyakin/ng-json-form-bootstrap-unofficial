@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } f
 import { FormGroup } from '@angular/forms';
 import { isObservable } from 'rxjs';
 import { RangeQuestionInterface } from '../../models';
+import { JsonConditionsService } from '../../services/json-conditions.service';
 
 @Component({
   selector: 'lib-question-radio',
@@ -18,7 +19,7 @@ export class QuestionRadioComponent implements OnChanges {
 
   public isOptionsObservable: boolean;
 
-  constructor() {}
+  constructor(public jsonConditionsService: JsonConditionsService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
       const opts = changes?.field?.currentValue?.options;
