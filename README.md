@@ -66,7 +66,7 @@ In your template.html add the component and bind the questions and the output to
 
 And you've got:
 
-<img src="/assets/img/example-field.png" width="300px">
+<img src="/projects/ng-json-form-bootstrap/src/assets/img/example-field.png" width="300px">
 
 #### Example 2: Complex form
 In your component, declare the questions Object:
@@ -219,7 +219,7 @@ In your template.html add the component and bind the questions and the output to
 
 And you've got:
 
-<img src="/assets/img/example-complex.png">
+<img src="/projects/ng-json-form-bootstrap/src/assets/img/example-complex.png">
 
 ###### IMPORTANT: The Questions Object is Immutable, the component it'self doesn't change the object, instead it emmits a new value from the output binding everytime the form changes
 
