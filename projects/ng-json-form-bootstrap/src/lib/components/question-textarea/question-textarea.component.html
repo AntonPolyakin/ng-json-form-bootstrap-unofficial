@@ -16,8 +16,11 @@
       [id]="field.key"
       [attr.disabled]="field.disabled ? '': null "
       [attr.readonly]="field.readonly ? '': null "
+      [attr.spellcheck]="field.spellcheck"
       [placeholder]="field.placeholder || '' "
-      [rows]="field.rows">
+      [rows]="field.rows"
+      [value]="field.value"
+      >
     </textarea>
 
     <lib-validation-messages class="invalid-feedback"

@@ -8,9 +8,7 @@ export class JsonConditionsService {
   //https://github.com/raisely/json-conditions
 
   public checkConditions(settings, reference){
-	console.log("checkConditions 0", settings, reference);
     return settings != undefined ? typeof settings == 'object' ? (()=>{
-		console.log("checkConditions 1", settings, reference);
 		return checkConditions(settings, reference);
 	})(): !!settings : !!settings;
   }

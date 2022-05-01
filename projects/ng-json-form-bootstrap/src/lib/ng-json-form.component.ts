@@ -113,11 +113,17 @@ watchFieldsChanges(): any {
 
 checkFormState(){
   //new
-  Object.keys(this.questions).forEach(questionKey=>{
-    if(this.jsonConditionsService.checkConditions(this.questions[questionKey]?.hidden, this.form.value)){
-      this.form.get(questionKey).disable({ emitEvent: false })
-    }else{
-      this.form.get(questionKey).enable({ emitEvent: false })
+  Object.keys(this.questions).forEach(questionKey => {
+    if (this.jsonConditionsService.checkConditions(this.questions[questionKey]?.hidden, this.form.getRawValue())) {
+      if (this.form.get(questionKey).enabled) {
+        this.form.get(questionKey).disable({ emitEvent: false });
+        this.form.get(questionKey).setValue(this.form.getRawValue()[questionKey], { emitEvent: false });
+      }
+    } else {
+      if (this.form.get(questionKey).disabled) {
+        this.form.get(questionKey).enable({ emitEvent: false });
+        this.form.get(questionKey).setValue(this.form.getRawValue()[questionKey], { emitEvent: false });
+      }
     }
   })
 }
