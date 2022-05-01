@@ -73,7 +73,7 @@ export class QuestionBase<T> {
     hidden?:boolean | {QuestionConditions, Object};
 
     constructor(options: QuestionBaseInterface = {}) {
-        this.value = options.value || null;
+        this.value = options.value === undefined ? null : options.value;
         this.key = options.key || this.createUUID();
         this.placeholder = options.placeholder || null;
         this.size = options.size || null;
