@@ -19,10 +19,6 @@
       "ng-json-form-bootstrap": [
         "dist/ng-json-form-bootstrap/ng-json-form-bootstrap",
         "dist/ng-json-form-bootstrap"
-      ],
-      "ng-json-form-securepay": [
-        "dist/ng-json-form-securepay/ng-json-form-securepay",
-        "dist/ng-json-form-securepay"
       ]
     }
   }
